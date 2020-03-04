@@ -16,21 +16,31 @@ class ViewController: UIViewController {
     // MARK: - IBOutlets
     
     
+    
+    @IBOutlet weak var wordSoFar: UILabel!
     @IBOutlet weak var incorrectGuessField: UILabel!
     @IBOutlet weak var lastGuessField: UILabel!
-    @IBOutlet weak var wordSoFar: UILabel!
     @IBOutlet weak var storeCurrGuess: UITextField!
     // MARK: - Class Props/Vars
-    var currCharGuess: String = ""
+    
     
     // MARK: - IBActions
+    @IBAction func exitWasPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "backToHome", sender: sender)
+    }
     
+    @IBAction func restartWasPressed(_ sender: Any) {
+        reset()
+    }
     @IBAction func guessWasPressed(_ sender: UIButton) {
         playTurn()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        wordSoFar.text = hangman.guessSoFar
+        incorrectGuessField.text = hangman.incorrectGuessesString
+        lastGuessField.text = hangman.lastGuess
     }
     
     // MARK: - Class Methods
@@ -38,7 +48,10 @@ class ViewController: UIViewController {
     
     private func reset() -> Void {
         hangman = Hangman()
-        
+        wordSoFar.text = hangman.guessSoFar
+        incorrectGuessField.text = hangman.incorrectGuessesString
+        lastGuessField.text = hangman.lastGuess
+        //update image
     }
     
     private func playTurn() -> Void {
@@ -46,10 +59,10 @@ class ViewController: UIViewController {
             if char.count == 1 {
                 hangman.makeGuess(guess: char)
                 //update attributes from hangman
-                incorrectGuessesField.text! = hangman.incorrectGuessesString
-                lastGuessField.text! = hangman.lastGuess
-                wordSoFar.text! = hangman.guessSoFar
-                
+                self.incorrectGuessField.text! =  hangman.incorrectGuessesString
+                self.lastGuessField.text! = hangman.lastGuess
+                self.wordSoFar.text! = hangman.guessSoFar
+                //update image
             }
         }
     }

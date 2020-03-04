@@ -57,7 +57,7 @@ class Hangman {
     var incorrectGuesses: Int
     var targetWord: String
     var lastGuess: String
-    var guessedChars: Set<String>
+    var guessedChars: Set<Character>
     var incorrectGuessesString: String
     var guessSoFar: String
     
@@ -66,29 +66,38 @@ class Hangman {
     init() {
         self.targetWord = wwdcArray.randomElement()!
         self.incorrectGuesses = 0
-        self.lastGuess = ""
+        self.lastGuess = "Last Guess: "
         self.guessedChars = []
-        self.incorrectGuessesString = ""
+        self.incorrectGuessesString = "Incorrect Guesses: "
         self.guessSoFar = String(repeating: "_ ", count: targetWord.count)
     }
     
     
     func makeGuess(guess letter: String) {
-        if guessedChars.contains(letter) {
+        let charInput = Character(letter)
+        if guessedChars.contains(charInput) {
             //duplicate, popup saying enter a new word
             
         } else {
-            self.guessedChars.insert(letter)
-            self.lastGuess = letter
+            self.guessedChars.insert(charInput)
+            self.lastGuess = "Last Guess: " + " \(letter)"
             if targetWord.contains(letter) {
-                // implement update image view
-            } else {
+                let targetArr = Array(targetWord)
+                var guessSoFarArr = Array(guessSoFar)
+                for i in 0..<targetArr.count {
+                    if targetArr[i] == charInput {
+                        guessSoFarArr[i*2] = charInput
+                    }
+                }
+                self.guessSoFar = String(guessSoFarArr)
+                
+            } else { //incorrect char entered case
                 self.incorrectGuesses += 1
                 self.incorrectGuessesString = incorrectGuessesString + " \(letter)"
-                //update incorrectGuessString label
+                
                 //update UIImage
             }
-            // update lastGuess label
+            
             
         }
     }

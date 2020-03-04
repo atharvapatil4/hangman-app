@@ -38,6 +38,7 @@
         <!--View Controller-->
         <scene sceneID="u9h-XW-JVP">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="36S-aR-uzy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="Lcc-83-Uce" customClass="ViewController" customModule="Hangman" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AdE-HC-Js8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -47,32 +48,36 @@
                                 <rect key="frame" x="33" y="55" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Exit Game"/>
+                                <connections>
+                                    <action selector="exitWasPressed:" destination="Lcc-83-Uce" eventType="touchUpInside" id="X0G-tp-9UP"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="backToHome" modalPresentationStyle="fullScreen" id="kft-5R-dEx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CA2-y4-ha6">
-                                <rect key="frame" x="136" y="645" width="142" height="30"/>
+                                <rect key="frame" x="149" y="641" width="117" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Guess this character"/>
+                                <state key="normal" title="Guess this letter!"/>
                                 <connections>
                                     <action selector="guessWasPressed:" destination="Lcc-83-Uce" eventType="touchUpInside" id="rZt-xf-4oN"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Guess" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZZK-mf-ccf">
-                                <rect key="frame" x="159" y="603" width="97" height="34"/>
+                                <rect key="frame" x="153" y="398" width="97" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Incorrect Guesses:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djq-sQ-MYU">
-                                <rect key="frame" x="33" y="440" width="144" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Incorrect Guesses:" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djq-sQ-MYU">
+                                <rect key="frame" x="41" y="477" width="83" height="11"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last Guess:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTC-NF-w2E">
-                                <rect key="frame" x="33" y="490" width="90" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last Guess:" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTC-NF-w2E">
+                                <rect key="frame" x="41" y="506" width="57" height="12"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -80,33 +85,35 @@
                                 <rect key="frame" x="87" y="157" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WordToGuess" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gj0-x1-wfz">
-                                <rect key="frame" x="153" y="351" width="108" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAg-Kl-OcM">
+                                <rect key="frame" x="311" y="55" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Restart"/>
+                                <connections>
+                                    <action selector="restartWasPressed:" destination="Lcc-83-Uce" eventType="touchUpInside" id="khb-au-1Io"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WordToGuess" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gj0-x1-wfz">
+                                <rect key="frame" x="41" y="346" width="108" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAg-Kl-OcM">
-                                <rect key="frame" x="311" y="55" width="50" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Restart"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="iMs-sO-VgC"/>
                     </view>
                     <navigationItem key="navigationItem" id="Eqh-E4-sS6"/>
                     <connections>
-                        <outlet property="incorrectGuessField" destination="djq-sQ-MYU" id="0l6-mN-SXP"/>
-                        <outlet property="lastGuessField" destination="WTC-NF-w2E" id="Itz-gR-U9m"/>
+                        <outlet property="incorrectGuessField" destination="djq-sQ-MYU" id="MwI-Tu-dbx"/>
+                        <outlet property="lastGuessField" destination="WTC-NF-w2E" id="05O-3V-swH"/>
                         <outlet property="storeCurrGuess" destination="ZZK-mf-ccf" id="fvm-GT-4dH"/>
-                        <outlet property="wordSoFar" destination="Gj0-x1-wfz" id="a4W-ma-vb9"/>
+                        <outlet property="wordSoFar" destination="Gj0-x1-wfz" id="2vH-p9-Bq7"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="36S-aR-uzy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="882.60869565217399" y="99.776785714285708"/>
+            <point key="canvasLocation" x="1125" y="-106"/>
         </scene>
     </scenes>
 </document>
