@@ -51,6 +51,17 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>WordArray</key>
+	<array>
+		<string>baseball game</string>
+		<string>blueberry</string>
+		<string>orange</string>
+		<string>dragonfruit</string>
+		<string>watermelon</string>
+		<string>banana</string>
+		<string>pear</string>
+		<string>apple</string>
+	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

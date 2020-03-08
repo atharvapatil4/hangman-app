@@ -53,23 +53,35 @@ class Hangman {
         "Core ML",
         "iMac Pro"
     ]
-    //var wordArray: [String]
+    var wordArray: [String]
     var incorrectGuesses: Int
     var targetWord: String
     var lastGuess: String
     var guessedChars: Set<Character>
     var incorrectGuessesString: String
     var guessSoFar: String
+    var duplicate: Bool
     
-    
+    struct InfoPlistParser {
+        static func getValue(forKey key:String) -> [String] {
+            guard let value = Bundle.main.infoDictionary?[key] as? [String] else {
+                fatalError()
+            }
+            return value
+        }
+    }
+//    let dicRoot = NSDictionary.init(contentsOf: (Bundle.main.path(forResource: "Info", ofType: "plist")!))
     // MARK: - Your Code Here
     init() {
-        self.targetWord = wwdcArray.randomElement()!
+        self.wordArray = InfoPlistParser.getValue(forKey: "WordArray")
+        self.targetWord = wordArray.randomElement()!
         self.incorrectGuesses = 0
         self.lastGuess = "Last Guess: "
         self.guessedChars = []
         self.incorrectGuessesString = "Incorrect Guesses: "
         self.guessSoFar = String(repeating: "_ ", count: targetWord.count)
+        self.duplicate = false
+        
     }
     
     
@@ -77,7 +89,7 @@ class Hangman {
         let charInput = Character(letter)
         if guessedChars.contains(charInput) {
             //duplicate, popup saying enter a new word
-            
+            self.duplicate = true
         } else {
             self.guessedChars.insert(charInput)
             self.lastGuess = "Last Guess: " + " \(letter)"
@@ -100,6 +112,34 @@ class Hangman {
             
             
         }
+    }
+    func getIncorrectGuesses() -> Int {
+        return self.incorrectGuesses
+    }
+    func getLastGuess() -> String {
+        return self.lastGuess
+    }
+    func getWord() -> String{
+        return self.targetWord
+    }
+    func getIncorrectGuessesString() -> String {
+//        var s = ""
+//        for c in self.incorrectGuessesString {
+//            s.append("\(c) ")
+//        }
+//        return s
+        return self.incorrectGuessesString
+    }
+    func getWordLen() -> Int {
+        return self.targetWord.count
+    }
+    
+    func reset() -> () {
+        self.incorrectGuesses = 0
+        self.lastGuess = "Last Guess: "
+        self.guessedChars = []
+        self.incorrectGuessesString = "Incorrect Guesses: "
+        self.guessSoFar = String(repeating: "_ ", count: targetWord.count)
     }
 }
 

@@ -38,7 +38,6 @@
         <!--View Controller-->
         <scene sceneID="u9h-XW-JVP">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="36S-aR-uzy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="Lcc-83-Uce" customClass="ViewController" customModule="Hangman" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AdE-HC-Js8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -66,18 +65,23 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="guessEntered:" destination="Lcc-83-Uce" eventType="editingChanged" id="X8J-2Q-Ofh"/>
+                                    <action selector="guessEntered:" destination="Lcc-83-Uce" eventType="touchDragEnter" id="c1V-gO-wyd"/>
+                                    <action selector="guessEntered:" destination="Lcc-83-Uce" eventType="editingDidEnd" id="pzD-IG-s0o"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Incorrect Guesses:" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djq-sQ-MYU">
-                                <rect key="frame" x="41" y="477" width="83" height="11"/>
+                                <rect key="frame" x="41" y="477" width="320" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last Guess:" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTC-NF-w2E">
-                                <rect key="frame" x="41" y="506" width="57" height="12"/>
+                                <rect key="frame" x="41" y="506" width="320" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -94,7 +98,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WordToGuess" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gj0-x1-wfz">
-                                <rect key="frame" x="41" y="346" width="108" height="21"/>
+                                <rect key="frame" x="33" y="307" width="350" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -106,14 +110,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="Eqh-E4-sS6"/>
                     <connections>
+                        <outlet property="HangmanImage" destination="6JA-3g-p1u" id="p9J-Dt-L2f"/>
                         <outlet property="incorrectGuessField" destination="djq-sQ-MYU" id="MwI-Tu-dbx"/>
                         <outlet property="lastGuessField" destination="WTC-NF-w2E" id="05O-3V-swH"/>
                         <outlet property="storeCurrGuess" destination="ZZK-mf-ccf" id="fvm-GT-4dH"/>
                         <outlet property="wordSoFar" destination="Gj0-x1-wfz" id="2vH-p9-Bq7"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="36S-aR-uzy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1125" y="-106"/>
+            <point key="canvasLocation" x="1124.6376811594205" y="-106.47321428571428"/>
         </scene>
     </scenes>
 </document>
