@@ -13,5 +13,5 @@ In this project, I built an iOS application for the Hangman game. Users are able
 - Managing state (win, play, lose)
 - Used plists to load data into appication
 
-##How to play
+## How to play
 Pull and build Hangman.xcodeproj
